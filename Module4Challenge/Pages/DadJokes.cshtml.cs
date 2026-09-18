@@ -62,8 +62,20 @@ namespace Module4Challenge.Pages
                 // The end of the x for-loop. After the c for-loop is done checking the joke is original, this line set the 
                 // x jokesToShow value as the currentJoke. 
 
-                //randomJokeNumber = rnd.Next(0,12);
+                randomJokeNumber = rnd.Next(0,12);
                 // Sets randomJokeNumber to a new random number.
+                for (int y = 0; y < newJokeList.Length; y++)
+                {
+                    if(dadJokes[randomJokeNumber] == newJokeList[y])
+                    {
+                        randomJokeNumber = rnd.Next(0,12);
+                        y = 0;
+                        continue;
+                    }
+
+                }
+                // This block of code checks if the joke that matches with the new randomly generated number 
+                // matches a joke in the newJokeList. if so, a new random number is generated. 
                  
             }
 
