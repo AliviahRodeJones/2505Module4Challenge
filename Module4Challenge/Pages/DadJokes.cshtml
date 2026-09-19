@@ -11,9 +11,11 @@
     @for (int i = 0; i < @Model.jokesToShow.Length; i++){
         <div class="card">@Model.jokesToShow[i]</div>
     }
+    <!-- The above code block uses razor to loop through the jokesToShow list and display all the jokes in a card divider. -->
     <form method="post">
             <button type="submit" class="btn btn-primary">Show Me More Jokes!</button>
 
     </form>
+    <!-- A form that submits the request to the C# page. -->
 
 </div>

@@ -8,23 +8,27 @@ namespace Module4Challenge.Pages
     {
         public string[] dadJokes { get; set; } = new string[12]
         {
-            "Joke1", //"When does a joke become a dad joke. When it becomes apparent.",
-            "Joke2", //"What do you call a well-balanced horse? Stable.",
-            "Joke3",//"I was wondering why the baseball was getting closer and closer. And then it hit me.",
-            "Joke4",//"Where do polar bears keep their money? In a snowbank.",
-            "Joke5",
-            "Joke6",
-            "Joke7",
-            "Joke8",
-            "Joke9",
-            "Joke10",
-            "Joke11",
-            "Joke12"
+            "When does a joke become a dad joke. When it becomes apparent.", //"",
+            "What do you call a well-balanced horse? Stable.", //"",
+            "I was wondering why the baseball was getting closer and closer. And then it hit me.",//"",
+            "Where do polar bears keep their money? In a snowbank.",//"",
+            "Why did the scarecrow win an award? Because he was outstanding in his field.",  
+            "What do you call a boomerang that won't fly back? A stick.", 
+            "Why did the guy get fired from the calendar factory? Because he took a few days off.",
+            "Did you hear about the cheese factory that exploded in France? Apparently, da brie is everywhere.",
+            "What do you call someone who raises hens? A chicken tender.",
+            "Why did the Gym close down? Because it didn't work out.",
+            "What's worse than raining cats and dogs. Hailing taxis.",
+            "What did the beach say when the tide came in. Long time no sea!"
         };
+        // This global array holds a list of 12 different jokes. 
 
         public int numberOfJokesToShow { get; set; } = 2;
+        // This global variable holds the number of jokes that are shown on the page at a time. 
         public string[] jokesToShow { get; set; } = new string[2];
+        // This global array holds the current list of jokes that are shown on the page. 
         public string[] newJokeList { get; set; } = new string[2];
+        // This global array holds the list of jokes that will be shown on the page next. 
 
 
 
@@ -46,6 +50,7 @@ namespace Module4Challenge.Pages
                 for(int c = 0; c < jokesToShow.Length; c++){
                     // Loops over jokesToShow. c represents the current joke in jokesToShow. 
                     if(jokesToShow[c] == currentJoke)
+                    // If the current joke in jokesToShow is the same as currentJoke
                     {
                         randomJokeNumber = rnd.Next(0,12);
                         currentJoke = dadJokes[randomJokeNumber];
@@ -53,24 +58,30 @@ namespace Module4Challenge.Pages
                         x = 0;
                         // Sets x to 0 so that the jokesToShow list is looped over again.
                         continue;
+                        // Goes back to the top of the loop.
                     }
 
                 
                 }
                 
                 newJokeList[x] = currentJoke;
-                // The end of the x for-loop. After the c for-loop is done checking the joke is original, this line set the 
-                // x jokesToShow value as the currentJoke. 
+                // The end of the x for-loop. After the c for-loop is done checking the joke is original, 
+                // this line sets the x jokesToShow value as the currentJoke. 
 
                 randomJokeNumber = rnd.Next(0,12);
                 // Sets randomJokeNumber to a new random number.
                 for (int y = 0; y < newJokeList.Length; y++)
+                // Loops over the newJokeList
                 {
                     if(dadJokes[randomJokeNumber] == newJokeList[y])
+                    // If the randomJokeNumber matches the current value in newJokeList. 
                     {
                         randomJokeNumber = rnd.Next(0,12);
+                        // A new number is generated.
                         y = 0;
+                        // Y is set to 0 so it iterates over the list again. 
                         continue;
+                        // Goes back to the beginning of the loop. 
                     }
 
                 }
@@ -96,6 +107,7 @@ namespace Module4Challenge.Pages
             {
                 
                 string currentJoke = dadJokes[randomJokeNumber]; 
+                // Sets currentJoke to a random joke in dadJokes. 
 
                 for(int c = 0; c < jokesToShow.Length; c++){
                     // Loops over jokesToShow. c represents the current joke in jokesToShow
@@ -103,30 +115,39 @@ namespace Module4Challenge.Pages
                     // If the current value in jokesToShow matches the currentJoke
                     {
                         randomJokeNumber = rnd.Next(0,12);
+                        // Sets randomJokeNumber to a new random value. 
                         x = 0;
+                        // Sets the counter back to 0. 
                         continue;
+                        // Goes back to the beginning of the loop.
                     }
 
-                
-                }
                 
                 newJokeList[x] = currentJoke;
                 // The end of the x for-loop. After the c for-loop is done checking the joke is original, this line set the 
                 // x jokesToShow value as the currentJoke. 
                 randomJokeNumber = rnd.Next(0,12);
+                // Generates a new random number. 
                 for (int y = 0; y < newJokeList.Length; y++)
+                // Loops over the newJokeList. 
                 {
                     if(dadJokes[randomJokeNumber] == newJokeList[y])
+                    // If the joke associated with the random number matches the current item in the newJokeList. 
                     {
                         randomJokeNumber = rnd.Next(0,12);
+                        // Generates a new random number.
                         y = 0;
-                        continue;
+                        // The counter is set to 0.
+                        //continue;
+                        // Restarts the loop back at the top. 
                     }
 
                 }
                 // This block of code checks if the joke that matches with the new randomly generated number 
                 // matches a joke in the newJokeList. if so, a new random number is generated. 
                  
+                }
+                
             }
 
             Array.Copy(newJokeList, jokesToShow, newJokeList.Length);
