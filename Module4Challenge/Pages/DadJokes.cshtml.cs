@@ -27,7 +27,7 @@ namespace Module4Challenge.Pages
         // This global variable holds the number of jokes that are shown on the page at a time. 
         public string[] jokesToShow { get; set; } = new string[2];
         // This global array holds the current list of jokes that are shown on the page. 
-        public string[] newJokeList { get; set; } = new string[2];
+        //public string[] newJokeList { get; set; } = new string[2];
         // This global array holds the list of jokes that will be shown on the page next. 
 
 
@@ -41,7 +41,7 @@ namespace Module4Challenge.Pages
             // Generates a new randomJokeNumber between 0 and 11. 
 
             for (int x = 0; x < numberOfJokesToShow; x++)
-            // Loops for numberOfJokesToShow. x represents the current joke in newJokeList.
+            // Loops for numberOfJokesToShow. x represents the current joke in jokesToShow(newJokeList.
             {
                 
                 string currentJoke = dadJokes[randomJokeNumber]; 
@@ -64,94 +64,61 @@ namespace Module4Challenge.Pages
                 
                 }
                 
-                newJokeList[x] = currentJoke;
+                jokesToShow[x] = currentJoke;
                 // The end of the x for-loop. After the c for-loop is done checking the joke is original, 
                 // this line sets the x jokesToShow value as the currentJoke. 
 
                 randomJokeNumber = rnd.Next(0,12);
                 // Sets randomJokeNumber to a new random number.
-                for (int y = 0; y < newJokeList.Length; y++)
-                // Loops over the newJokeList
-                {
-                    if(dadJokes[randomJokeNumber] == newJokeList[y])
-                    // If the randomJokeNumber matches the current value in newJokeList. 
-                    {
-                        randomJokeNumber = rnd.Next(0,12);
-                        // A new number is generated.
-                        y = 0;
-                        // Y is set to 0 so it iterates over the list again. 
-                        continue;
-                        // Goes back to the beginning of the loop. 
-                    }
-
-                }
-                // This block of code checks if the joke that matches with the new randomly generated number 
-                // matches a joke in the newJokeList. if so, a new random number is generated. 
-                 
+                
+            }
+                               
             }
 
-            Array.Copy(newJokeList, jokesToShow, newJokeList.Length);
-            // Copies the values in newJokesList to jokesToShow.
-        }
+        
 
     public void OnPost()
         {
              
+              
             Random rnd = new Random();
             // Creates a new random object. 
             int randomJokeNumber = rnd.Next(0,12);
             // Generates a new randomJokeNumber between 0 and 11. 
-            
+
             for (int x = 0; x < numberOfJokesToShow; x++)
-            // Loops the total number of times for the number of jokes to show. x is the current chosen joke in newJokeList.
+            // Loops for numberOfJokesToShow. x represents the current joke in jokesToShow(newJokeList.
             {
                 
                 string currentJoke = dadJokes[randomJokeNumber]; 
-                // Sets currentJoke to a random joke in dadJokes. 
+                // currentJoke is set to the value in dadJokes that the int randomJokeNumber is. This sets the r
 
                 for(int c = 0; c < jokesToShow.Length; c++){
-                    // Loops over jokesToShow. c represents the current joke in jokesToShow
+                    // Loops over jokesToShow. c represents the current joke in jokesToShow. 
                     if(jokesToShow[c] == currentJoke)
-                    // If the current value in jokesToShow matches the currentJoke
+                    // If the current joke in jokesToShow is the same as currentJoke
                     {
                         randomJokeNumber = rnd.Next(0,12);
-                        // Sets randomJokeNumber to a new random value. 
+                        currentJoke = dadJokes[randomJokeNumber];
+                        // Sets the randomJokeNumber to an new random value and sets the currentJoke to a new random string in dadJokes. 
                         x = 0;
-                        // Sets the counter back to 0. 
+                        // Sets x to -1 so that the jokesToShow list is looped over again.
                         continue;
-                        // Goes back to the beginning of the loop.
+                        // Goes back to the top of the loop.
                     }
 
                 
-                newJokeList[x] = currentJoke;
-                // The end of the x for-loop. After the c for-loop is done checking the joke is original, this line set the 
-                // x jokesToShow value as the currentJoke. 
-                randomJokeNumber = rnd.Next(0,12);
-                // Generates a new random number. 
-                for (int y = 0; y < newJokeList.Length; y++)
-                // Loops over the newJokeList. 
-                {
-                    if(dadJokes[randomJokeNumber] == newJokeList[y])
-                    // If the joke associated with the random number matches the current item in the newJokeList. 
-                    {
-                        randomJokeNumber = rnd.Next(0,12);
-                        // Generates a new random number.
-                        y = 0;
-                        // The counter is set to 0.
-                        //continue;
-                        // Restarts the loop back at the top. 
-                    }
+                }
+                
+                jokesToShow[x] = currentJoke;
+                // The end of the x for-loop. After the c for-loop is done checking the joke is original, 
+                // this line sets the x jokesToShow value as the currentJoke. 
 
-                }
-                // This block of code checks if the joke that matches with the new randomly generated number 
-                // matches a joke in the newJokeList. if so, a new random number is generated. 
-                 
-                }
+                randomJokeNumber = rnd.Next(0,12);
+                // Sets randomJokeNumber to a new random number.
                 
             }
-
-            Array.Copy(newJokeList, jokesToShow, newJokeList.Length);
-            // Copies the values in newJokesList to jokesToShow.
+              
         }
 
     }
