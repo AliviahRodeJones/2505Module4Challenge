@@ -27,9 +27,7 @@ namespace Module4Challenge.Pages
         // This global variable holds the number of jokes that are shown on the page at a time. 
         public string[] jokesToShow { get; set; } = new string[2];
         // This global array holds the current list of jokes that are shown on the page. 
-        //public string[] newJokeList { get; set; } = new string[2];
-        // This global array holds the list of jokes that will be shown on the page next. 
-
+        
 
 
     public void OnGet()
