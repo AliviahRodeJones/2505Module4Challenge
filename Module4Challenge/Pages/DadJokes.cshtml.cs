@@ -39,14 +39,14 @@ namespace Module4Challenge.Pages
             // Generates a new randomJokeNumber between 0 and 11. 
 
             for (int x = 0; x < numberOfJokesToShow; x++)
-            // Loops for numberOfJokesToShow. x represents the current joke in jokesToShow(newJokeList.
+            // Loops for numberOfJokesToShow. x represents the current joke being chosen.
             {
                 
                 string currentJoke = dadJokes[randomJokeNumber]; 
-                // currentJoke is set to the value in dadJokes that the int randomJokeNumber is. This sets the r
+                // currentJoke is set to the value in dadJokes that the int randomJokeNumber is. This sets the current joke to a random joke. 
 
                 for(int c = 0; c < jokesToShow.Length; c++){
-                    // Loops over jokesToShow. c represents the current joke in jokesToShow. 
+                    // Loops over jokesToShow. c represents the current joke being checked.. 
                     if(jokesToShow[c] == currentJoke)
                     // If the current joke in jokesToShow is the same as currentJoke
                     {
@@ -85,14 +85,14 @@ namespace Module4Challenge.Pages
             // Generates a new randomJokeNumber between 0 and 11. 
 
             for (int x = 0; x < numberOfJokesToShow; x++)
-            // Loops for numberOfJokesToShow. x represents the current joke in jokesToShow(newJokeList.
+            // Loops for numberOfJokesToShow. x represents the current joke being chosen.
             {
                 
                 string currentJoke = dadJokes[randomJokeNumber]; 
-                // currentJoke is set to the value in dadJokes that the int randomJokeNumber is. This sets the r
+                // Sets currentJoke to an new random joke in dadJokes.
 
                 for(int c = 0; c < jokesToShow.Length; c++){
-                    // Loops over jokesToShow. c represents the current joke in jokesToShow. 
+                    // Loops over jokesToShow. c represents the current joke being checked. 
                     if(jokesToShow[c] == currentJoke)
                     // If the current joke in jokesToShow is the same as currentJoke
                     {
